@@ -18,16 +18,17 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * Created by Apraxin Vladimir on 9.3.18.
+ * Created by eldar ibragimov and Apraxin Vladimir on 9.3.18.
  */
-public class Main {
 
-    public static void main(String[] args) throws IOException {
+public class DataProvider {
+
+    public  String run(String l , String d) throws IOException {
         List<User> users = new ArrayList<>();
         Map<String, LocalDate> deadlines = new TreeMap<>();
 
-        List<String> usersFile = readTwoSubstrings("links");
-        List<String> deadlinesFile = readTwoSubstrings("deadlines");
+        List<String> usersFile = readTwoSubstrings(l);
+        List<String> deadlinesFile = readTwoSubstrings(d);
 
         for (String s :
                 deadlinesFile) {
@@ -115,13 +116,15 @@ public class Main {
                 }
             }
         }
-        System.out.print("Количество заданий: ");
-        System.out.println(deadlines.size());
-        System.out.println();
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Количество заданий: ");
+        stringBuilder.append(deadlines.size());
+        stringBuilder.append("\n");
         for (User user :
                 users) {
-            System.out.println(user);
+            stringBuilder.append(user);
         }
+        return stringBuilder.toString();
     }
 
     private static List<String> readTwoSubstrings(String pathToFile) throws IOException {
