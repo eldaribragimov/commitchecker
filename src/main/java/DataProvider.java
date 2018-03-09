@@ -5,7 +5,6 @@ import org.eclipse.egit.github.core.Tree;
 import org.eclipse.egit.github.core.service.CommitService;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -120,9 +119,11 @@ public class DataProvider {
         stringBuilder.append("Количество заданий: ");
         stringBuilder.append(deadlines.size());
         stringBuilder.append("\n");
+        stringBuilder.append("\n");
         for (User user :
                 users) {
             stringBuilder.append(user);
+            stringBuilder.append("\n");
         }
         return stringBuilder.toString();
     }
