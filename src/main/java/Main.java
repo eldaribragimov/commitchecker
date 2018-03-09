@@ -118,7 +118,10 @@ public class Main {
         System.out.print("Количество заданий: ");
         System.out.println(deadlines.size());
         System.out.println();
-        System.out.println(users.toString());
+        for (User user :
+                users) {
+            System.out.println(user);
+        }
     }
 
     private static List<String> readTwoSubstrings(String pathToFile) throws IOException {
